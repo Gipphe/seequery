@@ -1,0 +1,40 @@
+{
+	"name": "seequery",
+	"version": "0.1.0",
+	"main": "dist/index.js",
+	"homepage": "http://github.com/Gipphe/seequery",
+	"author": "Victor \"Gipphe\" Nascimento Bakke",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Gipphe/seequery.git"
+	},
+	"ava": {
+		"babel": "inherit",
+		"require": [
+			"babel-register"
+		]
+	},
+	"scripts": {
+		"test": "ava test/*.js",
+		"build": "babel src -d dist",
+		"lint": "eslint src"
+	},
+	"devDependencies": {
+		"ava": "^0.19.1",
+		"babel-cli": "^6.24.1",
+		"babel-eslint": "^7.1.1",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.5.1",
+		"babel-preset-stage-2": "^6.24.1",
+		"babel-register": "^6.24.1",
+		"eslint": "^3.19.0",
+		"eslint-config-airbnb": "^15.0.1",
+		"eslint-config-airbnb-base": "^11.2.0",
+		"eslint-plugin-import": "^2.2.0",
+		"eslint-plugin-jsx-a11y": "^5.0.1",
+		"eslint-plugin-react": "^7.0.1"
+	},
+	"dependencies": {
+		"lodash": "^4.17.4"
+	}
+}
