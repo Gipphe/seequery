@@ -3,7 +3,7 @@
 		["env", { "modules": "umd" }],
 		"stage-2"
 	],
-	"plugins": ["transform-runtime"],
+	"plugins": ["transform-runtime", "add-module-exports"],
 	"env": {
 		"browser": true
 	}
