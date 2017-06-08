@@ -123,3 +123,42 @@ test(fromPre`should accept arrays with object rows`, (t) => {
 	const sql = from(arr);
 	t.deepEqual(sql.tables[0], arr);
 });
+test(fromPre`should accept multiple tables as long as they correspong`, (t) => {
+	const arr = [
+		{
+			foo: 'bar',
+		},
+		{
+			foo: 'baz',
+		},
+	];
+	const arr2 = [
+		{
+			foo: 'quux',
+		},
+		{
+			foo: 'foobar',
+		},
+	];
+	const sql = from(arr, arr2);
+	t.deepEqual(sql.tables, [arr, arr2]);
+});
+test(fromPre`should throw when passed two tables that do not have the same structure`, (t) => {
+	const arr1 = [
+		{
+			foo: 321,
+		},
+		{
+			foo: 123,
+		},
+	];
+	const arr2 = [
+		{
+			foo: 'bar',
+		},
+		{
+			foo: 'quux',
+		},
+	];
+	t.throws(() => from(arr1, arr2));
+});

@@ -46,14 +46,11 @@ const isTwoDimArray = (table) => {
  * @return {object} Returns an object with the value of each key replaced by the original value's
  * type string.
  */
-const getTypesInObject = (obj) => {
-	const keys = Object.keys(obj);
-	const result = keys.reduce((col, key) => {
+const getTypesInObject = obj =>
+	Object.keys(obj).reduce((col, key) => {
 		col[key] = toType(obj[key]);
 		return col;
 	}, {});
-	return result;
-};
 
 /**
  * Verifies that the passed table is a valid table-like array containing objects with keys as
@@ -106,10 +103,20 @@ const from = function from(...tables) {
 		}
 		return true;
 	});
+
 	if (!allValid) {
 		throw new TypeError('A passed table is not a uniform two-dimensional array or an array ' +
-				'containing objects with identical keys');
+			'containing objects with identical keys');
 	}
+
+	const columnsValid = tables.every(table =>
+		// TODO
+		true);
+	if (!columnsValid) {
+		throw new TypeError('Columns in one of the tables do not match columns in one of the ' +
+			'other tables, or one of the previously passed tables');
+	}
+
 	this.tables = this.tables.concat(tables);
 	return this;
 };

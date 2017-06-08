@@ -16,6 +16,8 @@ const createInstance = function createInstance() {
 	const sql = Object.create(seequery);
 	sql.selectedKeys = [];
 	sql.tables = [];
+	sql.columns = {};
+	sql.predicates = [];
 	return sql;
 };
 
